@@ -25,6 +25,10 @@ exports.LoginAdmin = asyncHandler(async (req, res) => {
     if (!verify) {
         return res.status(400).json({ message: "Password Do Not Match" })
     }
+    if (!result.active) {
+        return res.status(400).json({ message: "Account block by admin" })
+    }
+
     const Token = jwt.sign({ userID: result._id }, process.env.JWT_KEY)
     res.cookie("admin", Token, { httpOnly: true })
     res.json({
