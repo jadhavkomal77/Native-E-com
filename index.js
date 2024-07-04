@@ -11,6 +11,7 @@ app.use(cors({
 }))
 app.use(express.json())  // req.body madhe data takayche kam
 
+app.use(express.static("public"))
 app.use("/api/admin", require("./routes/admin.routes"))
 app.use("/api/auth", require("./routes/auth.routes"))
 app.use("/api/user", require("./routes/user.routes"))
