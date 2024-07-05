@@ -73,7 +73,7 @@ exports.getAllOrders = asyncHandler(async (req, res) => {
             desc: 1,
             price: 1,
             mrp: 1,
-            image: 1
+            images: 1
         })
         .sort({ createdAt: -1 })
     res.json({ message: "Order Fetch Success", result })
